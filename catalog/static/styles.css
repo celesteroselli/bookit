@@ -1,0 +1,164 @@
+html {
+  position: relative;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+a:hover :not(.button) {
+    color: rgb(199, 216, 144);
+}
+
+.button {
+    background-color: #8ac2ab;
+    border: none;
+    color: rgb(66, 66, 66);
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.button:hover {
+  background-color: #b2e6d1;
+}
+
+.footer {
+  position: absolute;
+  bottom:0;
+  background-color: rgb(192, 192, 192);
+  width:100%;
+  text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(37, 82, 67);
+  }
+  
+nav li {
+    float: left;
+  }
+  
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+nav li a:hover {
+    background-color: rgb(26, 56, 46);
+}
+
+  /* Layout */
+
+.column {
+    float: right;
+    inline-size: 27%;
+    height: 73vh;
+
+    background-color: rgb(87, 150, 126);
+    border: 4px solid rgb(47, 75, 66);
+
+    border-radius: 6px;
+    overflow-wrap: break-word;
+    margin: 0px 25px 100px;
+
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}
+
+.content {
+    float:left;
+    inline-size: 61.5%;
+    overflow-wrap: break-word;
+    margin: 0 25px;
+}
+
+.title {
+    margin-left: 25px;
+}
+
+
+table {
+    width:100%;
+}
+
+table, th, td {
+    border-collapse: collapse;
+}
+
+tr:nth-child(1) {
+    background-color: rgb(87, 150, 126);
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+@media screen and (max-width: 950px) {
+  .column {
+    float:none;
+    inline-size:80%;
+    margin: auto;
+    height: auto;
+
+  }
+  .content {
+    margin: auto;
+    text-align: center;
+    float:none;
+    margin-bottom: 150px;
+  }
+
+  .title {
+    text-align: center;
+    margin-left: 0%;
+  }
+
+  #form_input_block {
+    text-align: left;
+  }
+
+}
+
+.model_column {
+  float: left;
+  width: 32%;
+  text-align: center;
+  height: 100px;
+  margin-bottom: 30px;
+}
+
+.model_column.left {
+  border-right: 1px solid black;
+}
+
+.model_column.right {
+  border-left: 1px solid black;
+}
+
+
+.model_container:after {
+  content: "";
+  display: table;
+  clear: both;
+}

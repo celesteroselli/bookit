@@ -1,0 +1,29 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1 class="title">Loan List</h1>
+<div class="content">
+  {% if loan_list %}
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Loaner</th>
+      <th>Due Date</th>
+    </tr>
+    {% for LoanInstance in loan_list %}
+      <tr>
+        <th>{{ LoanInstance.book_loaned }}</th>
+        <th>{{ LoanInstance.loaner }}</th>
+        <th>{{ LoanInstance.due_date }}</th>
+      </tr>
+    {% endfor %}
+    </table>
+  {% else %}
+    <p>You're library has no current loans</p>
+  {% endif %}
+</div>
+<div class="column">
+  <a class='button' href="{% url 'loan_add' %}">Add Loan</a>
+</div>
+</div>
+{% endblock %}
