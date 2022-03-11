@@ -1,12 +1,9 @@
 from email.policy import default
 import isbnlib
-from multiprocessing import context
-from turtle import title
 from django.shortcuts import get_object_or_404, render, redirect
 from django.views import generic
 from django.db.models import Q
 from django.contrib.auth.models import User
-from numpy import number
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
