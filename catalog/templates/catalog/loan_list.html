@@ -11,15 +11,15 @@
       <th>Due Date</th>
     </tr>
     {% for LoanInstance in loan_list %}
-      <tr>
-        <th>{{ LoanInstance.book_loaned }}</th>
-        <th>{{ LoanInstance.loaner }}</th>
-        <th>{{ LoanInstance.due_date }}</th>
-      </tr>
+    <tr>
+      <th>{{ LoanInstance.book_loaned }}</th>
+      <th>{{ LoanInstance.loaner }}</th>
+      <th>{{ LoanInstance.due_date }}</th>
+    </tr>
     {% endfor %}
-    </table>
+  </table>
   {% else %}
-    <p>You're library has no current loans</p>
+  <p>You're library has no current loans</p>
   {% endif %}
 </div>
 <div class="column">

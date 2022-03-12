@@ -2,14 +2,13 @@
 
 {% block content %}
 <div class="content">
-<div id='form_input_block'>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button class="button is-success is-fullwidth is-medium mt-5"
-            type="submit">submit
-    </button>
-</form>
-</div>
+  <div id='form_input_block'>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="button is-success is-fullwidth is-medium mt-5" type="submit">submit
+      </button>
+    </form>
+  </div>
 </div>
 {% endblock %}

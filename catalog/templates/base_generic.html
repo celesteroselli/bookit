@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   {% block title %}<title>Bookit</title>{% endblock %}
   <meta charset="utf-8">
@@ -9,21 +10,23 @@
   <link rel="stylesheet" href="{% static 'stylesheet.css' %}">
   <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
 </head>
+
 <body>
   <div class="w3-bar back1">
     <a class="w3-bar-item w3-button w3-mobile" href="{% url 'books' %}">Catalog</a>
-  {% if user.is_authenticated %}
+    {% if user.is_authenticated %}
     <a class="w3-bar-item w3-button w3-mobile w3-right" href="{% url 'logout'%}?next={{request.path}}">Logout</a>
-  {% else %}
-    <a  class="w3-bar-item w3-button w3-mobile w3-right" href="{% url 'login'%}?next={{request.path}}">Login!</a>
-  {% endif %}
+    {% else %}
+    <a class="w3-bar-item w3-button w3-mobile w3-right" href="{% url 'login'%}?next={{request.path}}">Login!</a>
+    {% endif %}
   </div>
-    <div class="w3-container">
-      {% block content %}
-      {% endblock %}
-    </div>
+  <div class="w3-container">
+    {% block content %}
+    {% endblock %}
+  </div>
 </body>
 <footer class="w3-bottom">
   <p>Copyright CactusCat Software</p>
 </footer>
+
 </html>
