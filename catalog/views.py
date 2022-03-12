@@ -1,4 +1,3 @@
-from email.policy import default
 import isbnlib
 from django.shortcuts import get_object_or_404, render, redirect
 from django.views import generic
@@ -9,6 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from .forms import BookForm, EditBookForm, LoanAdd, BookAdd
 from .models import Book, LoanInstance
+from django.urls import reverse
 
 class BookListView(LoginRequiredMixin, generic.ListView):
     model = Book
@@ -80,3 +80,10 @@ class FilterOverdue(generic.ListView):
 
     def get_queryset(self):
         return Book.objects.filter(user=self.request.user)
+
+class UserCreate(generic.CreateView):
+    model = User
+    template_name = 'create_user.html'  # Specify your own template name/location
+    fields = ['username', 'password']
+    def get_success_url(self):
+        return reverse("books")

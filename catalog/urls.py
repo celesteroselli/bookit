@@ -10,4 +10,5 @@ urlpatterns = [
     path('book_delete/<int:pk>/', views.DeleteBook, name='book_delete'),
     path('filter/overdue/', views.FilterOverdue.as_view(), name='filter_overdue'),
     path("<int:pk>/", views.book_detail, name="book_detail"),
+    path("create_user/", views.UserCreate.as_view(), name="create_user"),
 ]
