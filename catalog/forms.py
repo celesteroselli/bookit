@@ -6,9 +6,6 @@ class BookForm(forms.ModelForm):
         model = Book
         exclude = ("user",)
 
-class BookAdd(forms.Form):
-    title = forms.CharField(max_length=100)
-
 class LoanAdd(forms.ModelForm):
     class Meta:
         model = LoanInstance
