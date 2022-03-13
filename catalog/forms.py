@@ -18,3 +18,4 @@ class EditBookForm(forms.ModelForm):
     class Meta:
         model = Book
         exclude = ("user",)
+

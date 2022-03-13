@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.views import generic
 from django.db.models import Q
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
@@ -81,9 +82,9 @@ class FilterOverdue(generic.ListView):
     def get_queryset(self):
         return Book.objects.filter(user=self.request.user)
 
-class UserCreate(generic.CreateView):
-    model = User
-    template_name = 'create_user.html'  # Specify your own template name/location
-    fields = ['username', 'password']
-    def get_success_url(self):
-        return reverse("books")
+def UserCreate(request):
+    form = UserCreationForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('books')
+    return render(request, 'create_user.html', {'form': form})

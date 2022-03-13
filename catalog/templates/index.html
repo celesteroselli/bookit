@@ -13,7 +13,7 @@
   <h2>User: {{ user.get_username }}</h2>
   <p><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
     {% else %}
-    <h3><a href="{% url 'login'%}?next={{request.path}}">Login!</a></li>
+    <h3><a href="{% url 'login'%}?next={{request.path}}">Login or Create Account!</a></li>
       {% endif %}
       <h2>Quick Commands:</h2>
       <a href="{% url 'book_add' %}">Add Book</a>
