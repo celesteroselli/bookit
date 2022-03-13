@@ -7,6 +7,7 @@ urlpatterns = [
     path('loans/', views.LoanListView.as_view(), name='loans'),
     path('book_add/', views.AddBook, name='book_add'),
     path('loan_add/<int:pk>/', views.AddLoan, name='loan_add'),
+    path('loan_return/<int:pk>/', views.ReturnBook, name='loan_return'),
     path('book_delete/<int:pk>/', views.DeleteBook, name='book_delete'),
     path('filter/overdue/', views.FilterOverdue.as_view(), name='filter_overdue'),
     path("<int:pk>/", views.book_detail, name="book_detail"),

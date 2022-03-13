@@ -16,7 +16,7 @@
     <div class="w3-dropdown-hover w3-right">
       <button class="w3-button">Filter</button>
       <div class="w3-dropdown-content w3-bar-block w3-border">
-        <a href="#" class="w3-bar-item w3-button">Link 1</a>
+        <a href="{% url 'filter_overdue' %}" class="w3-bar-item w3-button">Overdue Books</a>
         <a href="#" class="w3-bar-item w3-button">Link 2</a>
         <a href="#" class="w3-bar-item w3-button">Link 3</a>
       </div>
@@ -35,7 +35,11 @@
     </div>
     <div class="w3-cell w3-center">
       <p><a>{{ book.status }}</a></p>
+    {% if book.status == 'AVAILABLE' %}
       <h3><a href="{% url 'loan_add' book.pk %}">Loan</a></h3>
+    {% else %}
+      <h3><a href="{% url 'loan_return' book.pk %}">Return</a></h3>
+    {% endif %}
     </div>
   </div>
   {% endfor %}

@@ -14,6 +14,7 @@
 <body>
   <div class="w3-bar back1">
     <a class="w3-bar-item w3-button w3-mobile" href="{% url 'books' %}">Catalog</a>
+    <a class="w3-bar-item w3-button w3-mobile" href="{% url 'loans' %}">Loans</a>
     {% if user.is_authenticated %}
     <a class="w3-bar-item w3-button w3-mobile w3-right" href="{% url 'logout'%}?next={{request.path}}">Logout</a>
     {% else %}

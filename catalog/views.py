@@ -44,16 +44,21 @@ def book_detail(request, pk):
     return render(request, 'catalog/book_detail.html', {'form': form})
 
 def AddBook(request):
-    if request.method == 'POST':
-        form = BookForm(request.POST)
-        if form.is_valid():
-            Book = form.save(commit=False)
-            Book.user = request.user
-            Book.save()
-            return redirect('books')
-            
-    form = BookForm()
+    form = BookForm(request.POST)
+    if form.is_valid():
+        Book = form.save(commit=False)
+        Book.user = request.user
+        Book.save()
+        return redirect('books')
     return render(request, 'catalog/book_add.html', {'form': form})
+
+def ReturnBook(request, pk):
+    instance = get_object_or_404(Book, pk=pk)
+    loan = get_object_or_404(LoanInstance, book_loaned=instance)
+    loan.delete()
+    instance.status = 'AVAILABLE'
+    instance.save()
+    return redirect('books')
 
 def AddLoan(request, pk):
     instance = get_object_or_404(Book, pk=pk)
@@ -80,7 +85,7 @@ class FilterOverdue(generic.ListView):
     model = Book
 
     def get_queryset(self):
-        return Book.objects.filter(user=self.request.user)
+        return Book.objects.filter(status = 'ON LOAN')
 
 def UserCreate(request):
     form = UserCreationForm(request.POST or None)

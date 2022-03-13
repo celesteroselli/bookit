@@ -1,29 +1,32 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-<h1 class="title">Loan List</h1>
-<div class="content">
+<div class="w3-container">
+  <h1 class="w3-left">Loan Dashboard</h1>
+</div>
+<hr class="w3-border">
+<div>
   {% if loan_list %}
-  <table>
-    <tr>
-      <th>Title</th>
-      <th>Loaner</th>
-      <th>Due Date</th>
-    </tr>
-    {% for LoanInstance in loan_list %}
-    <tr>
-      <th>{{ LoanInstance.book_loaned }}</th>
-      <th>{{ LoanInstance.loaner }}</th>
-      <th>{{ LoanInstance.due_date }}</th>
-    </tr>
-    {% endfor %}
-  </table>
+  {% for LoanInstance in loan_list %}
+  <div class="w3-cell-row w3-margin-bottom">
+    <div class="w3-cell w3-border-right w3-center">
+      <p>Loaner</p>
+      <h3>{{ LoanInstance.loaner }}</h3>
+    </div>
+    <div class="w3-cell w3-border-right w3-center">
+      <p>Book Loaned</p>
+      <h3>{{ LoanInstance.book_loaned }}</h3>
+    </div>
+    <div class="w3-cell w3-center">
+      <p>Due Date</p>
+      <h3>{{ LoanInstance.due_date }}</h3>
+      <p>Is Overdue</p>
+      <h3>{{ LoanInstance.loan_status }}</h3>
+    </div>
+  </div>
+  {% endfor %}
   {% else %}
-  <p>You're library has no current loans</p>
+  <p>No Loans</p>
   {% endif %}
-</div>
-<div class="column">
-  <a class='button' href="{% url 'loan_add' %}">Add Loan</a>
-</div>
 </div>
 {% endblock %}
